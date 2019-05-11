@@ -11,7 +11,7 @@ public class Wall : MonoBehaviour
 
     LinkedListNode<Wall> wallNode;
 
-    QarthNode Node1;
+    public QarthNode Node1;
     public QarthNode Node2;
 
     QarthNode currentNodeDir;
