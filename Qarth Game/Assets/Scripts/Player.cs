@@ -70,14 +70,14 @@ public class Player : MonoBehaviour
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         linkedNode = null;
     }
-
+    /*
     void FixedUpdate()
     {
         float mH = Input.GetAxis("Horizontal");
         float mV = Input.GetAxis("Vertical");
         rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
     }
-
+    */
     private void OnTriggerEnter(Collider other)
     {
         
