@@ -28,8 +28,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F)) Connect();
-        if (Input.GetKeyDown(KeyCode.G)) Disconnect();
+        //if (Input.GetKeyDown(KeyCode.F)) Connect();
+        //if (Input.GetKeyDown(KeyCode.G)) Disconnect();
         WallLimitChecker();
     }
 
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         if (walls.Count > wallLimit) Disconnect();
     }
 
-    void Connect()
+    public void Connect()
     {
         if (currentNode && linkedNode && currentNode != linkedNode)
         {
@@ -49,14 +49,14 @@ public class Player : MonoBehaviour
             linkedNode = currentNode;
             currentNode.Selected(this);
         }
-        else
+        else if (linkedNode)
         {
             linkedNode.Deselect();
             linkedNode = null;
         }
     }
 
-    void Disconnect()
+    public void Disconnect()
     {
         if (walls.Count < 1) return;
         walls.First.Value.Disconnect();
@@ -70,14 +70,14 @@ public class Player : MonoBehaviour
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         linkedNode = null;
     }
-
+    /*
     void FixedUpdate()
     {
         float mH = Input.GetAxis("Horizontal");
         float mV = Input.GetAxis("Vertical");
         rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
     }
-
+    */
     private void OnTriggerEnter(Collider other)
     {
         
