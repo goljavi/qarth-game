@@ -16,6 +16,15 @@ public class Enemy : MonoBehaviour
         transform.position += transform.forward * speed * Time.deltaTime;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 9)
+        {
+            other.GetComponent<Wall>().Hit();
+            TurnOff(this);
+        }
+    }
+
     public static void TurnOn(Enemy e)
     {
         e.gameObject.SetActive(true);
