@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class QarthNode : MonoBehaviour
 {
@@ -36,15 +37,24 @@ public class QarthNode : MonoBehaviour
 
     public QarthNode WallConnect(Wall wall)
     {
-        if (walls.Count < 1) mat.color = wall.parent.playerColor;
+        inUse = true;
+        var count = walls.Count;
+        if (count < 1) mat.color = wall.parent.playerColor;
+        if (count > 1) walls.ForEach(x => x.life += count - 1);
         walls.Add(wall);
         return this;
     }
 
     public QarthNode WallDisconnect(Wall wall)
     {
+        inUse = false;
         walls.Remove(wall);
         if (walls.Count < 1) mat.color = originalColor;
+
+        var count = walls.Count;
+        if (walls.Count < 1) mat.color = originalColor;
+        if (count > 1) walls.ForEach(x => x.life -= count - 1);
+
         return this;
     }
 }

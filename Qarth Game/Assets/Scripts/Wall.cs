@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    public int life;
+
     public float speed;
     public float threshold;
 
@@ -42,7 +44,8 @@ public class Wall : MonoBehaviour
             }
         }
         transform.position = Vector3.Lerp(transform.position, currentDir, Time.deltaTime * speed);
-        
+
+        if (life < 1) Disconnect();
     }
 
     public void SetWall(QarthNode Node1, QarthNode Node2, LinkedListNode<Wall> wallNode, Player parent)
@@ -64,5 +67,10 @@ public class Wall : MonoBehaviour
         Node1.WallDisconnect(this);
         Node2.WallDisconnect(this);
         Destroy(gameObject);
+    }
+
+    public void Hit()
+    {
+        life -= 1;
     }
 }
