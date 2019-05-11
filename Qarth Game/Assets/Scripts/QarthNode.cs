@@ -5,8 +5,13 @@ using System.Linq;
 
 public class QarthNode : MonoBehaviour
 {
-    public Renderer rend;
+    
     public Color originalColor;
+
+    public int fila;
+    public int columna;
+
+    Renderer rend;
     Material mat;
     List<Wall> walls;
     public bool inUse;
@@ -14,6 +19,7 @@ public class QarthNode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponentInParent<Renderer>();
         rend.material.color = originalColor;
         mat = rend.material;
         walls = new List<Wall>();
@@ -57,8 +63,15 @@ public class QarthNode : MonoBehaviour
         return this;
     }
 
-    public bool HasWall(QarthNode node)
+    public bool DisapproveConnection(QarthNode node)
     {
-        return walls.Any(x => x.Node1 == node || x.Node2 == node);
+        return walls.Any(
+           x => x.Node1 == node 
+        || x.Node2 == node) 
+        || node.columna == columna 
+        || node.fila < fila - 1 
+        || node.fila > fila + 1 
+        || node.columna > columna + 1 
+        || node.columna < columna - 1;
     }
 }

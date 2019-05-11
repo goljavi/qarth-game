@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
     void ConnectNodes()
     {
-        if (currentNode.HasWall(linkedNode)) return;
+        if (currentNode.DisapproveConnection(linkedNode)) return;
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         linkedNode = null;
