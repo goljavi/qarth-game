@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
             linkedNode = currentNode;
             currentNode.Selected(this);
         }
-        else
+        else if (linkedNode)
         {
             linkedNode.Deselect();
             linkedNode = null;
