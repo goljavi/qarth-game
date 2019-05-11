@@ -104,9 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46b34153c1630a042ac43772d324dd2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3
   speed: 19.04
   threshold: 0.1
-  Node1: {fileID: 0}
   Node2: {fileID: 0}
-  currentNodeDir: {fileID: 0}
-  currentDir: {x: 0, y: 0, z: 0}
+  parent: {fileID: 0}
