@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     QarthNode currentNode;
     QarthNode linkedNode;
     LinkedList<Wall> walls;
+    LineRenderer _lr;
+    bool _connecting;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +24,25 @@ public class Player : MonoBehaviour
         playerMat = rend.material;
         playerMat.color = playerColor;
         walls = new LinkedList<Wall>();
+        _lr = GetComponent<LineRenderer>();
+        _lr.enabled = false;
+    }
 
+    void SetupLine()
+    {
+        _lr.positionCount = 2;
+        _lr.useWorldSpace = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.F)) Connect();
-        //if (Input.GetKeyDown(KeyCode.G)) Disconnect();
         WallLimitChecker();
+        if (_connecting && linkedNode)
+        {
+            _lr.SetPosition(0, linkedNode.transform.position);
+            _lr.SetPosition(1, transform.position);
+        }
     }
 
     void WallLimitChecker()
@@ -46,13 +58,29 @@ public class Player : MonoBehaviour
         }
         else if (currentNode)
         {
-            linkedNode = currentNode;
-            currentNode.Selected(this);
+            IsConnecting(true);
         }
         else if (linkedNode)
         {
+            IsConnecting(false);
+        }
+    }
+
+    public void IsConnecting(bool value)
+    {
+        if (value)
+        {
+            linkedNode = currentNode;
+            currentNode.Selected(this);
+            _connecting = true;
+            _lr.enabled = true;
+        }
+        else
+        {
             linkedNode.Deselect();
             linkedNode = null;
+            _connecting = false;
+            _lr.enabled = false;
         }
     }
 
@@ -61,6 +89,7 @@ public class Player : MonoBehaviour
         if (walls.Count < 1) return;
         walls.First.Value.Disconnect();
         walls.RemoveFirst();
+        _connecting = false;
     }
 
     void ConnectNodes()
@@ -69,15 +98,10 @@ public class Player : MonoBehaviour
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         linkedNode = null;
+        _connecting = false;
+        _lr.enabled = false;
     }
-    /*
-    void FixedUpdate()
-    {
-        float mH = Input.GetAxis("Horizontal");
-        float mV = Input.GetAxis("Vertical");
-        rb.velocity = new Vector3(mH * speed, rb.velocity.y, mV * speed);
-    }
-    */
+
     private void OnTriggerEnter(Collider other)
     {
         
