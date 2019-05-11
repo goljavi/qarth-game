@@ -39,8 +39,9 @@ public class QarthNode : MonoBehaviour
     {
         inUse = true;
         var count = walls.Count;
+        Debug.Log(count);
         if (count < 1) mat.color = wall.parent.playerColor;
-        if (count > 1) walls.ForEach(x => x.life += count - 1);
+        if (count > 0) walls.ForEach(x => { x.life += count; });
         walls.Add(wall);
         return this;
     }
@@ -53,8 +54,13 @@ public class QarthNode : MonoBehaviour
 
         var count = walls.Count;
         if (walls.Count < 1) mat.color = originalColor;
-        if (count > 1) walls.ForEach(x => x.life -= count - 1);
+        if (count > 0) walls.ForEach(x => x.life -= count);
 
         return this;
+    }
+
+    public bool HasWall(QarthNode node)
+    {
+        return walls.Any(x => x.Node1 == node || x.Node2 == node);
     }
 }

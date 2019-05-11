@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int wallLimit = 4;
     public float speed;
     public Rigidbody rb;
     public GameObject paredPrefab;
@@ -21,14 +22,20 @@ public class Player : MonoBehaviour
         playerMat = rend.material;
         playerMat.color = playerColor;
         walls = new LinkedList<Wall>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.F)) Connect();
-
         if (Input.GetKeyDown(KeyCode.G)) Disconnect();
+        WallLimitChecker();
+    }
+
+    void WallLimitChecker()
+    {
+        if (walls.Count > wallLimit) Disconnect();
     }
 
     void Connect()
@@ -58,7 +65,7 @@ public class Player : MonoBehaviour
 
     void ConnectNodes()
     {
-        if (currentNode.inUse && linkedNode.inUse) return;
+        if (currentNode.HasWall(linkedNode)) return;
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         linkedNode = null;
