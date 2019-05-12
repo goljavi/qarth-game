@@ -10,7 +10,6 @@ public class QarthNode : MonoBehaviour
     public int fila;
     public int columna;
 
-    Renderer rend;
     Material mat;
     List<Wall> walls;
     public bool inUse;
