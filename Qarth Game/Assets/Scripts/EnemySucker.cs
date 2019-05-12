@@ -13,7 +13,6 @@ public class EnemySucker : Enemy
     public float timeDamage;
     float _timer;
 
-    public AudioSource absorbAudiosrc;
     public AudioSource dieAudiosource;
 
     private void Awake()
@@ -29,7 +28,6 @@ public class EnemySucker : Enemy
     {
         if (life <= 0)
         {
-            dieAudiosource.Play();
             TurnOff(this);
         }
         transform.LookAt(nucleo.transform.position);
@@ -59,6 +57,8 @@ public class EnemySucker : Enemy
                         {
                             life--;
                             _size -= 0.5f;
+                            if(life <= 0)
+                                dieAudiosource.Play();
                         }
                         else
                         {
@@ -81,6 +81,8 @@ public class EnemySucker : Enemy
                         {
                             life--;
                             _size -= 0.5f;
+                            if(life <= 0)
+                            dieAudiosource.Play();
                         }
                         else
                         {
@@ -112,7 +114,6 @@ public class EnemySucker : Enemy
             _posSucker = transform.position;
             normalParticles.Stop();
             particlesSucker.Play();
-            absorbAudiosrc.Play();
         }
         else if (other.gameObject.layer == 10)
         {

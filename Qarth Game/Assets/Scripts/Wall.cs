@@ -9,6 +9,8 @@ public class Wall : MonoBehaviour
     public float speed;
     public float threshold;
 
+    public AudioSource destroyAudiosrc;
+
     LinkedListNode<Wall> wallNode;
 
     public QarthNode Node1;
@@ -62,8 +64,15 @@ public class Wall : MonoBehaviour
         Node1.WallDisconnect(this);
         Node2.WallDisconnect(this);
         UIManager.Instance.ChangeUI(parent.gameObject.GetComponent<MovementPlayers>().player1,parent.walls.Count);
-        if(gameObject != null)
-            Destroy(gameObject);
+        destroyAudiosrc.Play();
+        GetComponent<TrailRenderer>().enabled = false;
+        GetComponent<ParticleSystem>().Stop();
+        Invoke("RealDeath", 2f);
+    }
+
+    private void RealDeath()
+    {
+        Destroy(gameObject);
     }
 
     public void Hit()
