@@ -16,7 +16,7 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-    public void ChangeProgress(int seconds)
+    public void ChangeProgress(float seconds)
     {
         progress.fillAmount = seconds / 210;
     }
