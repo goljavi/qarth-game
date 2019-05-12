@@ -48,16 +48,16 @@ public class Wall : MonoBehaviour
         if (life < 1) Disconnect();
     }
 
-    public void SetWall(QarthNode Node1, QarthNode Node2, LinkedListNode<Wall> wallNode, Player parent)
+    public void SetWall(QarthNode Node1, QarthNode Node2, LinkedListNode<Wall> wallNode, Player _parent)
     {
         this.Node1 = Node1;
         this.Node2 = Node2;
         this.wallNode = wallNode;
-        this.parent = parent;
+        this.parent = _parent;
         transform.position = Node2.transform.position;
         currentDir = Node1.transform.position;
         currentNodeDir = Node1;
-        GetComponent<TrailRenderer>().materials[0].SetColor("_BaseColor", parent.playerColor);
+        GetComponent<TrailRenderer>().materials[0].SetColor("_BaseColor", _parent.playerColor);
 
         this.Node1.WallConnect(this);
         this.Node2.WallConnect(this);
