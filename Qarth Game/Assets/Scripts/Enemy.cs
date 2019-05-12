@@ -8,9 +8,10 @@ public class Enemy : MonoBehaviour
     public float speed;
     public AudioSource chocarAudiosrc;
     public ParticleSystem myparticles;
-
+    GameManager manager;
     protected virtual void Awake()
     {
+        manager = FindObjectOfType<GameManager>();
         if (GetComponent<ParticleSystem>())
         {
             myparticles = GetComponent<ParticleSystem>();
@@ -23,6 +24,10 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
+        if (manager.finishLevel)
+        {
+            TurnOff(this);
+        }
         myparticles.Play();
         transform.LookAt(nucleo.transform.position);
         transform.position += transform.forward * speed * Time.deltaTime;
@@ -38,7 +43,6 @@ public class Enemy : MonoBehaviour
         }
         else if (other.gameObject.layer == 10)
         {
-            //ACA TOCA NUCLEO
             chocarAudiosrc.Play();
             TurnOff(this);
         }

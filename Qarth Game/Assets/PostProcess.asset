@@ -110,7 +110,7 @@ MonoBehaviour:
         texture: {fileID: 0}
         intensity: 3
   colorGrading:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       tonemapping:
         tonemapper: 1
@@ -124,7 +124,7 @@ MonoBehaviour:
         postExposure: 0
         temperature: -6
         tint: -8
-        hueShift: -12
+        hueShift: 85
         saturation: 0.94
         contrast: 0.99
       channelMixer:

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using Cinemachine;
+using Cinemachine.PostFX;
 
 
 public class GameManager : MonoBehaviour
@@ -17,13 +19,35 @@ public class GameManager : MonoBehaviour
     bool part1, part2, part3, part4, part5, part6;
     float timeElapsed;
     public PostProcessingProfile profile;
-    public List<float> hueChange;
+    public CinemachinePostFX profileFX;
+    public List<PostProcessingProfile> profiles = new List<PostProcessingProfile>();
+    //public List<float> hueChange;
 
     bool spawnearSuccionadores;
+    public bool finishLevel;
 
-    // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangePostProcess(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangePostProcess(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ChangePostProcess(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ChangePostProcess(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            ChangePostProcess(4);
+        }
         if (!stopSpawn)
         {
             _timer += Time.deltaTime;
@@ -66,6 +90,7 @@ public class GameManager : MonoBehaviour
 
     void Win()
     {
+        finishLevel = true;
         screenWin.gameObject.SetActive(true);
         particlesWin.gameObject.SetActive(true);
         Destroy(FindObjectOfType<Bawss>().gameObject);
@@ -74,6 +99,7 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        finishLevel = true;
         screenDefeat.gameObject.SetActive(true);
        // Time.timeScale = 0;
     }
@@ -93,8 +119,8 @@ public class GameManager : MonoBehaviour
     
     public void ChangePostProcess(int step)
     {
-        ColorGradingModel.Settings algo = profile.colorGrading.settings;
-        algo.basic.hueShift = hueChange[step];
+        Debug.Log(step);
+        profileFX.m_Profile = profiles[step];
     }
     
     void CheckPartsMusic()
@@ -106,6 +132,8 @@ public class GameManager : MonoBehaviour
                 timerSpawn = 3f;
                 part1 = true;
                 Debug.Log("PARTE 1");
+
+                ChangePostProcess(0);
             }
         }
         /*if (!part2)
@@ -133,6 +161,7 @@ public class GameManager : MonoBehaviour
                 timerSpawn = 2.5f;
                 part2 = true;
                 Debug.Log("PARTE 2");
+                ChangePostProcess(1);
             }
         }
         if (!part3)
@@ -142,6 +171,7 @@ public class GameManager : MonoBehaviour
                 spawnearSuccionadores = true;
                 Debug.Log("PARTE 3");
                 part3 = true;
+                ChangePostProcess(2);
             }
         }
         if (!part4)
@@ -151,6 +181,7 @@ public class GameManager : MonoBehaviour
                 timerSpawn = 5f;
                 part4 = true;
                 Debug.Log("PARTE 4: TRANQUILA");
+                ChangePostProcess(3);
             }
         }
         if (!part5)
@@ -160,6 +191,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(bossPrefab).transform.position = new Vector3(40, 1, 25);
                 part5 = true;
                 Debug.Log("PARTE 5: BOSS");
+                ChangePostProcess(4);
             }
         }
     }
