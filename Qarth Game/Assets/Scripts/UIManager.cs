@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public TextMeshProUGUI player1Amount;
     public TextMeshProUGUI player2Amount;
+    public Image progress; 
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void ChangeProgress(int seconds)
+    {
+        progress.fillAmount = seconds / 210;
     }
 
     public void ChangeUI(bool player1, int amount)

@@ -4713,7 +4713,7 @@ GameObject:
   - component: {fileID: 2434112651247257777}
   - component: {fileID: 8888193258680121721}
   - component: {fileID: 5357556149156077588}
-  - component: {fileID: 3235505586664508004}
+  - component: {fileID: 204554359308299700}
   - component: {fileID: 5572097449044045925}
   m_Layer: 0
   m_Name: BAWSS
@@ -4731,7 +4731,7 @@ Transform:
   m_GameObject: {fileID: 5893600734039402796}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.5634885, y: 7.206212, z: -29.37}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 6841473260455475789}
   m_Father: {fileID: 0}
@@ -9477,7 +9477,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3235505586664508004
+--- !u!114 &204554359308299700
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9486,16 +9486,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5893600734039402796}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be6bb763ce47a445a08fb30f3165187, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e8be60d302063e4385b5f8e83d2b8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nucleo: {fileID: 0}
-  speed: 3
+  speed: 0.5
   chocarAudiosrc: {fileID: 0}
-  life: 1
+  life: 30
   normalParticles: {fileID: 0}
   particlesSucker: {fileID: 0}
-  timeDamage: 1.5
+  timeDamage: 3
   dieAudiosource: {fileID: 5572097449044045925}
 --- !u!82 &5572097449044045925
 AudioSource:
