@@ -5,7 +5,6 @@ using System.Linq;
 
 public class QarthNode : MonoBehaviour
 {
-    private Renderer rend;
     public Color originalColor;
 
     public int fila;
@@ -14,6 +13,8 @@ public class QarthNode : MonoBehaviour
     Material mat;
     List<Wall> walls;
     public bool inUse;
+
+    Renderer rend;
 
     // Start is called before the first frame update
     void Start()
@@ -64,13 +65,14 @@ public class QarthNode : MonoBehaviour
 
     public bool DisapproveConnection(QarthNode node)
     {
+        var exceptionCol = columna + node.columna != 7;
         return walls.Any(
            x => x.Node1 == node 
         || x.Node2 == node) 
         || node.columna == columna 
         || node.fila < fila - 1 
         || node.fila > fila + 1 
-        || node.columna > columna + 1 
-        || node.columna < columna - 1;
+        || exceptionCol && node.columna > columna + 1
+        || exceptionCol && node.columna < columna - 1;
     }
 }
