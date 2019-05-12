@@ -12,6 +12,7 @@ public class Bawss : Enemy
     Wall _wall;
     public float timeDamage;
     float _timer;
+    float actualSpeed = 0;
 
     public AudioSource dieAudiosource;
 
@@ -33,7 +34,7 @@ public class Bawss : Enemy
         transform.LookAt(nucleo.transform.position);
         if (!_suckerActive)
         {
-            transform.position += transform.forward * speed * Time.deltaTime;
+            transform.position += transform.forward * actualSpeed * Time.deltaTime;
             if (!normalParticles.isPlaying)
             {
                 normalParticles.Play();
@@ -53,18 +54,10 @@ public class Bawss : Enemy
                         _wall.Hit();
                         _timer = 0;
 
-                        if (_wall.violetWall)
-                        {
-                            life--;
-                            _size -= 0.5f;
-                            if(life <= 0)
-                                dieAudiosource.Play();
-                        }
-                        else
-                        {
-                            life++;
-                            _size += 0.5f;
-                        }
+                        life--;
+                        _size -= 0.5f;
+                        if (life <= 0)
+                            dieAudiosource.Play();
 
                         _suckerActive = false;
                         _wall = null;
@@ -77,21 +70,13 @@ public class Bawss : Enemy
                         _timer = 0;
 
 
-                        if (_wall.violetWall)
-                        {
-                            life--;
-                            _size -= 0.5f;
-                            if(life <= 0)
-                            dieAudiosource.Play();
-                        }
-                        else
-                        {
-                            life++;
-                            _size += 0.5f;
-                        }
+                        life--;
+                        _size -= 0.5f;
+                        if(life <= 0)
+                        dieAudiosource.Play();
                     }
                 }
-                _size = Mathf.Clamp(_size, 1, 3);
+                _size = Mathf.Clamp(_size, 0.1f, 3);
                 transform.localScale = new Vector3(_size, _size, _size);
             }
             else
@@ -121,21 +106,8 @@ public class Bawss : Enemy
         }
     }
 
-
-    public static void TurnOn(Bawss e)
+    public void TurnOff(Bawss e)
     {
-        e.gameObject.transform.localScale = Vector3.one;
-        e._size = 1;
-        e.gameObject.SetActive(true);
-
-        if(e.normalParticles != null)
-            e.normalParticles.Play();
-        e.particlesSucker.Stop();
-    }
-
-    public static void TurnOff(Bawss e)
-    {
-        e.life = 1;
-        e.gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
