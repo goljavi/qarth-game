@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Bawss bossPrefab;
     public Transform[] spawnerEnemys;
     public float timerSpawn;
     public float secondsToWin;
-
+    public GameObject screenWin, screenDefeat, particlesWin;
     float _timer;
     public AudioSource music;
     bool stopSpawn, doubleSpawn;
@@ -37,6 +38,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(music.time);
+            Win();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log(music.time);
+            Lose();
         }
 
         // Check Win
@@ -45,16 +53,25 @@ public class GameManager : MonoBehaviour
 
         //Check Lose
         if (Nucleo.Instance.life < 1) Lose();
+
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            music.time = 108.4f;
+            stopSpawn = true;
+        }
     }
 
     void Win()
     {
-        Debug.Log("Win");
+        screenWin.gameObject.SetActive(true);
+        particlesWin.gameObject.SetActive(true);
+       // Time.timeScale = 0;
     }
 
     void Lose()
     {
-        Debug.Log("Lose");
+        screenDefeat.gameObject.SetActive(true);
+       // Time.timeScale = 0;
     }
 
     void RandomSpawner()
@@ -145,8 +162,8 @@ public class GameManager : MonoBehaviour
                 stopSpawn = true;
             else if (music.time >= 128.6f && music.time <= 128.8f)
             {
-                stopSpawn = false;
-                //ACA APARECE BOSS
+                //stopSpawn = false;
+                Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part6 = true;
                 Debug.Log("PARTE 6: BOSS");
             }
