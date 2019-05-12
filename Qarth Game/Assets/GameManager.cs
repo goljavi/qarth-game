@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     float timeElapsed;
 
     bool spawnearSuccionadores;
+    public bool finishLevel;
 
-    // Update is called once per frame
     void Update()
     {
         if (!stopSpawn)
