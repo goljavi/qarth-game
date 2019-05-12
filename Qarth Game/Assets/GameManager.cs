@@ -58,17 +58,7 @@ public class GameManager : MonoBehaviour
             }
         }
         CheckPartsMusic();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log(music.time);
-            Win();
-        }
 
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log(music.time);
-            Lose();
-        }
 
         // Check Win
         timeElapsed += Time.deltaTime;
