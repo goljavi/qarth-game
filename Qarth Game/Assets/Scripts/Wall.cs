@@ -58,6 +58,7 @@ public class Wall : MonoBehaviour
         currentDir = Node1.transform.position;
         currentNodeDir = Node1;
         GetComponent<TrailRenderer>().materials[0].SetColor("_BaseColor", _parent.playerColor);
+        GetComponent<ParticleSystemRenderer>().material.SetColor("_BaseColor", _parent.playerColor);
 
         this.Node1.WallConnect(this);
         this.Node2.WallConnect(this);
@@ -67,7 +68,9 @@ public class Wall : MonoBehaviour
     {
         Node1.WallDisconnect(this);
         Node2.WallDisconnect(this);
-        Destroy(gameObject);
+        UIManager.Instance.ChangeUI(parent.gameObject.GetComponent<MovementPlayers>().player1,parent.walls.Count);
+        if(gameObject != null)
+            Destroy(gameObject);
     }
 
     public void Hit()

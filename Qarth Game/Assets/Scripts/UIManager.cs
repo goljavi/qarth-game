@@ -6,8 +6,8 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    TextMeshProUGUI player1Amount;
-    TextMeshProUGUI player2Amount;
+    public TextMeshProUGUI player1Amount;
+    public TextMeshProUGUI player2Amount;
 
     private void Awake()
     {
@@ -18,11 +18,11 @@ public class UIManager : MonoBehaviour
     {
         if (player1)
         {
-            player1Amount.text = amount.ToString();
+            player1Amount.text = ( 4 -amount).ToString();
         }
         else
         {
-            player2Amount.text = amount.ToString();
+            player2Amount.text = ( 4 -amount).ToString();
         }
     }
 
