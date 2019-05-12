@@ -64,11 +64,10 @@ public class Wall : MonoBehaviour
         Node1.WallDisconnect(this);
         Node2.WallDisconnect(this);
         UIManager.Instance.ChangeUI(parent.gameObject.GetComponent<MovementPlayers>().player1,parent.walls.Count);
-<<<<<<< HEAD
-        parent.walls.Remove(wallNode);
-        if(gameObject != null)
-            Destroy(gameObject);
-=======
+
+        var wallNode = parent.walls.Find(this);
+        if (wallNode != null) parent.walls.Remove(wallNode);
+
         destroyAudiosrc.Play();
         GetComponent<TrailRenderer>().enabled = false;
         GetComponent<ParticleSystem>().Stop();
@@ -78,7 +77,6 @@ public class Wall : MonoBehaviour
     private void RealDeath()
     {
         Destroy(gameObject);
->>>>>>> 5be5a730a2e5ab98e188368116a75f16c865928c
     }
 
     public void Hit()
