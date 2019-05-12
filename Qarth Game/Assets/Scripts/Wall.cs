@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wall : MonoBehaviour
 {
     public int life;
-
+    public bool violetWall;
     public float speed;
     public float threshold;
 
