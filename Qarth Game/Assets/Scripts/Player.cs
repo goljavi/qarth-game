@@ -143,6 +143,7 @@ public class Player : MonoBehaviour
         if (other.tag == "Node")
         {
             currentNode = other.gameObject.GetComponent<QarthNode>();
+            currentNode.GetComponentInChildren<Renderer>().material.SetFloat("_ActiveLight", 1);
         }
     }
 
@@ -150,6 +151,7 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Node")
         {
+            other.gameObject.GetComponent<QarthNode>().GetComponentInChildren<Renderer>().material.SetFloat("_ActiveLight", 0);
             currentNode = null;
         }
     }
