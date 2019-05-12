@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5722,6 +5722,8 @@ GameObject:
   - component: {fileID: 611380865}
   - component: {fileID: 611380864}
   - component: {fileID: 611380866}
+  - component: {fileID: 611380868}
+  - component: {fileID: 611380867}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5826,6 +5828,34 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: Cinemachine.CinemachineBrain+VcamEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &611380867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611380862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
+--- !u!114 &611380868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611380862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360979aafebd332448626a2236bafdb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
+  m_FocusTracksTarget: 0
+  m_FocusOffset: 0
 --- !u!1 &632911645
 GameObject:
   m_ObjectHideFlags: 0
@@ -6759,6 +6789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0483573daa7684f8ddf4e7f93ac51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossPrefab: {fileID: 0}
   spawnerEnemys:
   - {fileID: 745531318}
   - {fileID: 210206057}
@@ -8526,6 +8557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Amount: {fileID: 1143895631}
   player2Amount: {fileID: 1934105788}
+  progress: {fileID: 0}
 --- !u!114 &2062312433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8723,15 +8755,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8827667657723590119, guid: 68600de7eb05b1d4192c3197f01fdc53,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4306029188936255077, guid: 68600de7eb05b1d4192c3197f01fdc53,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827667657723590119, guid: 68600de7eb05b1d4192c3197f01fdc53,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7993400111148090602, guid: 68600de7eb05b1d4192c3197f01fdc53,
         type: 3}
