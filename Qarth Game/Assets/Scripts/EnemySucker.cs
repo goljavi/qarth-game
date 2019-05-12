@@ -26,8 +26,15 @@ public class EnemySucker : Enemy
         if (life <= 0)
             TurnOff(this);
         transform.LookAt(nucleo.transform.position);
-        if(!_suckerActive)
+        if (!_suckerActive)
+        {
             transform.position += transform.forward * speed * Time.deltaTime;
+            if (!normalParticles.isPlaying)
+            {
+                normalParticles.Play();
+                particlesSucker.Stop();
+            }
+        }
         else
         {
             transform.position = _posSucker;

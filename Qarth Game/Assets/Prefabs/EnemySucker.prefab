@@ -4709,11 +4709,11 @@ GameObject:
   - component: {fileID: 7736507417334685198}
   - component: {fileID: 4073387529230857335}
   - component: {fileID: 5751576590506118005}
-  - component: {fileID: 1383002503874382702}
   - component: {fileID: 7230583150786348173}
   - component: {fileID: 7307390278744691846}
   - component: {fileID: 2471690940167975672}
   - component: {fileID: 3351362905560515580}
+  - component: {fileID: 6478412334011728041}
   m_Layer: 0
   m_Name: EnemySucker
   m_TagString: Untagged
@@ -4781,23 +4781,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &1383002503874382702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8510213616434171656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be6bb763ce47a445a08fb30f3165187, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nucleo: {fileID: 0}
-  speed: 3
-  life: 1
-  normalParticles: {fileID: 0}
-  timeDamage: 2
 --- !u!135 &7230583150786348173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9493,3 +9476,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6478412334011728041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8510213616434171656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0be6bb763ce47a445a08fb30f3165187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nucleo: {fileID: 0}
+  speed: 3
+  life: 1
+  normalParticles: {fileID: 0}
+  particlesSucker: {fileID: 0}
+  timeDamage: 1.5
