@@ -9490,8 +9490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nucleo: {fileID: 0}
-  speed: 0.5
+  speed: 2
   chocarAudiosrc: {fileID: 0}
+  myparticles: {fileID: 0}
   life: 30
   normalParticles: {fileID: 0}
   particlesSucker: {fileID: 0}

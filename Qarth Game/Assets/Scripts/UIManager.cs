@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
 
     public void ChangeProgress(float seconds)
     {
-        progress.fillAmount = seconds / 210;
+        progress.fillAmount = seconds / 155;
     }
 
     public void ChangeUI(bool player1, int amount)

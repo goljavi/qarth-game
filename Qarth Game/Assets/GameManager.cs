@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     public Bawss bossPrefab;
     public Transform[] spawnerEnemys;
     public float timerSpawn;
-    public float secondsToWin;
+    float secondsToWin = 155;
     public GameObject screenWin, screenDefeat, particlesWin;
     float _timer;
     public AudioSource music;
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
         // Check Win
         timeElapsed += Time.deltaTime;
+        Debug.Log(timeElapsed + " - " + secondsToWin);
         if (timeElapsed >= secondsToWin) Win();
 
         //Check Lose
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.P))
         {
             music.time = 108.4f;
+            timeElapsed += 108.4f;
             stopSpawn = true;
         }
 
@@ -66,10 +68,11 @@ public class GameManager : MonoBehaviour
     {
         screenWin.gameObject.SetActive(true);
         particlesWin.gameObject.SetActive(true);
+        Destroy(FindObjectOfType<Bawss>().gameObject);
        // Time.timeScale = 0;
     }
 
-    void Lose()
+    public void Lose()
     {
         screenDefeat.gameObject.SetActive(true);
        // Time.timeScale = 0;
@@ -146,16 +149,15 @@ public class GameManager : MonoBehaviour
             if (music.time >= 109.6f && music.time <= 109.8f)
             {
                 timerSpawn = 5f;
-                Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part4 = true;
                 Debug.Log("PARTE 4: TRANQUILA");
             }
         }
         if (!part5)
         {
-            if (music.time >= 128.6f && music.time <= 128.8f)
+            if (music.time >= 127.6f && music.time <= 127.8f)
             {
-                Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
+                Instantiate(bossPrefab).transform.position = new Vector3(40, 1, 25);
                 part5 = true;
                 Debug.Log("PARTE 5: BOSS");
             }

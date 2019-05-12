@@ -12,7 +12,7 @@ public class Bawss : Enemy
     Wall _wall;
     public float timeDamage;
     float _timer;
-    float actualSpeed = 0;
+    float speed2 = 0.5f;
 
     public AudioSource dieAudiosource;
 
@@ -35,7 +35,7 @@ public class Bawss : Enemy
         transform.LookAt(nucleo.transform.position);
         if (!_suckerActive)
         {
-            transform.position += transform.forward * actualSpeed * Time.deltaTime;
+            transform.position += transform.forward * speed * Time.deltaTime;
             if (!normalParticles.isPlaying)
             {
                 normalParticles.Play();
@@ -50,35 +50,8 @@ public class Bawss : Enemy
                 _timer += Time.deltaTime;
                 if(_timer >= timeDamage)
                 {
-                    if(_wall.life <= 1)
-                    {
-                        _wall.Hit();
-                        _timer = 0;
-
-                        life--;
-                        _size -= 0.5f;
-                        if (life <= 0)
-                            dieAudiosource.Play();
-
-                        _suckerActive = false;
-                        _wall = null;
-                        normalParticles.Play();
-                        particlesSucker.Stop();
-                    }
-                    else
-                    {
-                        _wall.Hit();
-                        _timer = 0;
-
-
-                        life--;
-                        _size -= 0.5f;
-                        if(life <= 0)
-                        dieAudiosource.Play();
-                    }
+                    speed = speed2;
                 }
-                _size = Mathf.Clamp(_size, 0.1f, 3);
-                transform.localScale = new Vector3(_size, _size, _size);
             }
             else
             {
@@ -95,6 +68,7 @@ public class Bawss : Enemy
         if (other.gameObject.layer == 9 && !_suckerActive)
         {
             _wall = other.gameObject.GetComponent<Wall>();
+            _wall.Disconnect();
             _suckerActive = true;
             _posSucker = transform.position;
             normalParticles.Stop();
@@ -103,6 +77,7 @@ public class Bawss : Enemy
         else if (other.gameObject.layer == 10)
         {
             //ACA TOCA NUCLEO
+            FindObjectOfType<GameManager>().Lose();
             TurnOff(this);
         }
     }
