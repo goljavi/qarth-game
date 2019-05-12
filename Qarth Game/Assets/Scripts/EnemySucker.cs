@@ -7,8 +7,7 @@ public class EnemySucker : Enemy
     public int life;
     float _size;
     Vector3 _posSucker;
-    ParticleSystem _particlesSucker;
-    public ParticleSystem normalParticles;
+    public ParticleSystem normalParticles, particlesSucker;
     bool _suckerActive;
     Wall _wall;
     public float timeDamage;
@@ -16,8 +15,10 @@ public class EnemySucker : Enemy
     private void Awake()
     {
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
-        _particlesSucker = GetComponentInChildren<ParticleSystem>();
-        normalParticles = GetComponent<ParticleSystem>();
+        if(particlesSucker == null)
+            particlesSucker = GetComponentInChildren<ParticleSystem>();
+        if (normalParticles == null)
+            normalParticles = GetComponent<ParticleSystem>();
         life = 1;
     }
     void Update()
@@ -53,6 +54,8 @@ public class EnemySucker : Enemy
 
                         _suckerActive = false;
                         _wall = null;
+                        normalParticles.Play();
+                        particlesSucker.Stop();
                     }
                     else
                     {
@@ -80,6 +83,8 @@ public class EnemySucker : Enemy
                 _timer = 0;
                 _suckerActive = false;
                 _wall = null;
+                normalParticles.Play();
+                particlesSucker.Stop();
             }
         }
     }
@@ -91,7 +96,8 @@ public class EnemySucker : Enemy
             _wall = other.gameObject.GetComponent<Wall>();
             _suckerActive = true;
             _posSucker = transform.position;
-            _particlesSucker.Play();
+            normalParticles.Stop();
+            particlesSucker.Play();
         }
         else if (other.gameObject.layer == 10)
         {
@@ -109,6 +115,7 @@ public class EnemySucker : Enemy
 
         if(e.normalParticles != null)
             e.normalParticles.Play();
+        e.particlesSucker.Stop();
     }
 
     public static void TurnOff(EnemySucker e)
