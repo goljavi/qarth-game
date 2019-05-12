@@ -6,10 +6,15 @@ public class GameManager : MonoBehaviour
 {
     public Transform[] spawnerEnemys;
     public float timerSpawn;
+    public float secondsToWin;
+
     float _timer;
     public AudioSource music;
     bool stopSpawn, doubleSpawn;
     bool part1, part2, part3, part4, part5, part6;
+    float timeElapsed;
+
+
     void Start()
     {
         
@@ -42,7 +47,26 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log(music.time);
         }
+
+        // Check Win
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= secondsToWin) Win();
+
+        //Check Lose
+        if (Nucleo.Instance.life < 1) Lose();
     }
+
+    void Win()
+    {
+        Debug.Log("Win");
+        
+    }
+
+    void Lose()
+    {
+        Debug.Log("Lose");
+    }
+
     void RandomSpawner()
     {
         var b = EnemySpawner.Instance.pool.GetObject();

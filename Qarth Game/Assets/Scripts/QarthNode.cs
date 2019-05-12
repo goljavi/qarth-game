@@ -5,7 +5,6 @@ using System.Linq;
 
 public class QarthNode : MonoBehaviour
 {
-    private Renderer rend;
     public Color originalColor;
 
     public int fila;
