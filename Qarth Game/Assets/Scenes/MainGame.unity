@@ -708,7 +708,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278150021}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a85f8a7e37609884e94b8d05f95f2179, type: 2}
   m_CullingMode: 0
@@ -7321,12 +7321,8 @@ MonoBehaviour:
   particlesWin: {fileID: 324237174}
   music: {fileID: 1094884492}
   profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
-  hueChange:
-  - -12
-  - 180
-  - 58
-  - -35
-  - 121
+  profileFX: {fileID: 0}
+  profiles: []
   finishLevel: 0
 --- !u!4 &1094884491
 Transform:
@@ -9039,31 +9035,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6062190243369817559}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2005581835 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6062190242023990764, guid: 63e5e80bbd61d254eb908251d499561c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6062190243369817559}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2005581837
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005581835}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f69a7b4fd84c4834299e67dab1fee33f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2008927251
 GameObject:
   m_ObjectHideFlags: 0
@@ -9685,6 +9656,11 @@ PrefabInstance:
       propertyPath: lifeHUD
       value: 
       objectReference: {fileID: 37706777}
+    - target: {fileID: 6062190242413073078, guid: 63e5e80bbd61d254eb908251d499561c,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 278150023}
     - target: {fileID: 2648561980516055387, guid: 63e5e80bbd61d254eb908251d499561c,
         type: 3}
       propertyPath: m_LocalScale.x
