@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     public Color playerColor;
     public Renderer rend;
 
+    public AudioSource useNodeAudiosrc;
+    public AudioSource usingNodeAudiosrc;
+    public AudioSource errorNodeAudiosrc;
+
     [HideInInspector] public Material playerMat;
     QarthNode currentNode;
     QarthNode linkedNode;
@@ -70,6 +74,7 @@ public class Player : MonoBehaviour
     {
         if (value)
         {
+            usingNodeAudiosrc.Play();
             linkedNode = currentNode;
             currentNode.Selected(this);
             _connecting = true;
@@ -77,6 +82,7 @@ public class Player : MonoBehaviour
         }
         else
         {
+            usingNodeAudiosrc.Stop();
             linkedNode.Deselect();
             linkedNode = null;
             _connecting = false;
@@ -86,7 +92,11 @@ public class Player : MonoBehaviour
 
     public void Disconnect()
     {
-        if (walls.Count < 1) return;
+        if (walls.Count < 1)
+        {
+            errorNodeAudiosrc.Play();
+            return;
+        }
         walls.First.Value.Disconnect();
         walls.RemoveFirst();
         UIManager.Instance.ChangeUI(gameObject.GetComponent<MovementPlayers>().player1, walls.Count);
@@ -95,8 +105,14 @@ public class Player : MonoBehaviour
 
     void ConnectNodes()
     {
-        if (currentNode.DisapproveConnection(linkedNode)) return;
-        
+        if (currentNode.DisapproveConnection(linkedNode))
+        {
+            errorNodeAudiosrc.Play();
+            return;
+        }
+        useNodeAudiosrc.time = 1.2f;
+        useNodeAudiosrc.Play();
+        usingNodeAudiosrc.Stop();
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         UIManager.Instance.ChangeUI(gameObject.GetComponent<MovementPlayers>().player1, walls.Count);
