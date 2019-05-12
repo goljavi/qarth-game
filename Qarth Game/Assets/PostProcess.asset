@@ -124,7 +124,7 @@ MonoBehaviour:
         postExposure: 0
         temperature: -6
         tint: -8
-        hueShift: -12
+        hueShift: -35
         saturation: 0.94
         contrast: 0.99
       channelMixer:

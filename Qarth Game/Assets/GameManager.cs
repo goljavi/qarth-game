@@ -103,6 +103,8 @@ public class GameManager : MonoBehaviour
                 timerSpawn = 3f;
                 part1 = true;
                 Debug.Log("PARTE 1");
+
+                ChangePostProcess(0);
             }
         }
         /*if (!part2)
@@ -130,6 +132,7 @@ public class GameManager : MonoBehaviour
                 timerSpawn = 2.5f;
                 part2 = true;
                 Debug.Log("PARTE 2");
+                ChangePostProcess(1);
             }
         }
         if (!part3)
@@ -139,6 +142,7 @@ public class GameManager : MonoBehaviour
                 spawnearSuccionadores = true;
                 Debug.Log("PARTE 3");
                 part3 = true;
+                ChangePostProcess(2);
             }
         }
         if (!part4)
@@ -149,6 +153,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part4 = true;
                 Debug.Log("PARTE 4: TRANQUILA");
+                ChangePostProcess(3);
             }
         }
         if (!part5)
@@ -159,6 +164,7 @@ public class GameManager : MonoBehaviour
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part5 = true;
                 Debug.Log("PARTE 5: BOSS");
+                ChangePostProcess(4);
             }
         }
     }
