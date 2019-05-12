@@ -15,8 +15,9 @@ public class EnemySucker : Enemy
 
     public AudioSource dieAudiosource;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
         if(particlesSucker == null)
             particlesSucker = GetComponentInChildren<ParticleSystem>();
@@ -26,6 +27,7 @@ public class EnemySucker : Enemy
     }
     void Update()
     {
+        myparticles.Play();
         if (life <= 0)
         {
             TurnOff(this);

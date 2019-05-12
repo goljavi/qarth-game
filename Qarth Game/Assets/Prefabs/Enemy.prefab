@@ -65,6 +65,7 @@ MonoBehaviour:
   nucleo: {fileID: 0}
   speed: 2.5
   chocarAudiosrc: {fileID: 164597265355007702}
+  myparticles: {fileID: 0}
 --- !u!198 &3233266545864680162
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -255,7 +256,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.969697, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.96862745, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
