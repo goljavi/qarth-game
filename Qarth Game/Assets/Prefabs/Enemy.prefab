@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nucleo: {fileID: 0}
-  speed: 3
+  speed: 2.5
   chocarAudiosrc: {fileID: 164597265355007702}
 --- !u!198 &3233266545864680162
 ParticleSystem:
