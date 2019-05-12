@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     bool part1, part2, part3, part4, part5, part6;
     float timeElapsed;
 
+    bool spawnearSuccionadores;
+
     // Update is called once per frame
     void Update()
     {
@@ -23,14 +25,7 @@ public class GameManager : MonoBehaviour
             _timer += Time.deltaTime;
             if (_timer >= timerSpawn)
             {
-                if (doubleSpawn)
-                {
-                    RandomDoubleSpawner();
-                }
-                else
-                {
-                    RandomSpawner();
-                }
+                RandomSpawner();
                 _timer = 0;
             }
         }
@@ -59,6 +54,8 @@ public class GameManager : MonoBehaviour
             music.time = 108.4f;
             stopSpawn = true;
         }
+
+        UIManager.Instance.ChangeProgress(music.time);
     }
 
     void Win()
@@ -76,35 +73,12 @@ public class GameManager : MonoBehaviour
 
     void RandomSpawner()
     {
-        var b = EnemySpawner.Instance.poolEnemySucker.GetObject();
+        var b = EnemySpawner.Instance.pool.GetObject();
         int random = Random.Range(0, spawnerEnemys.Length - 1);
         int randomPX = Random.Range(-20, 20);
         b.transform.position = spawnerEnemys[random].position;
         FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random));
         b.transform.position += new Vector3 (randomPX, 0);
-    }
-    void RandomDoubleSpawner()
-    {
-        var a = EnemySpawner.Instance.pool.GetObject();
-        var b = EnemySpawner.Instance.pool.GetObject();
-        int random = Random.Range(0, spawnerEnemys.Length - 1);
-        FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random));
-        int random2;
-
-        if(random == spawnerEnemys.Length)
-        {
-            random2 = random - 1;
-        }else
-        {
-            random2 = random + 1;
-        }
-        FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random2));
-
-        int randomPX = Random.Range(-1, 1);
-        a.transform.position = spawnerEnemys[random].position;
-        b.transform.position = spawnerEnemys[random2].position;
-        a.transform.position += new Vector3(randomPX, 0);
-        b.transform.position += new Vector3(randomPX, 0);
     }
     void CheckPartsMusic()
     {
@@ -112,11 +86,12 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 22.8f && music.time <= 22.99f)
             {
+                timerSpawn = 3f;
                 part1 = true;
                 Debug.Log("PARTE 1");
             }
         }
-        if (!part2)
+        /*if (!part2)
         {
             if (music.time >= 34.7f && music.time <= 34.9f)
             {
@@ -133,39 +108,42 @@ public class GameManager : MonoBehaviour
                 part3 = true;
                 Debug.Log("PARTE 3");
             }
-        }
-        if (!part4)
+        }*/
+        if (!part2)
         {
             if (music.time >= 58.8f && music.time <= 58.99f)
             {
-                timerSpawn = 3f;
+                spawnearSuccionadores = true;
+                timerSpawn = 2.5f;
+                part2 = true;
+                Debug.Log("PARTE 2");
+            }
+        }
+        if (!part3)
+        {
+            if (music.time >= 82.5f && music.time <= 82.7f)
+            {
+                Debug.Log("PARTE 3");
+                part3 = true;
+            }
+        }
+        if (!part4)
+        {
+            if (music.time >= 109.6f && music.time <= 109.8f)
+            {
+                Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part4 = true;
-                Debug.Log("PARTE 4");
+                Debug.Log("PARTE 4: TRANQUILA");
             }
         }
         if (!part5)
         {
-            if (music.time >= 82.5f && music.time <= 82.7f)
+            if (music.time >= 128.6f && music.time <= 128.8f)
             {
-
-            }
-                
-            else if (music.time >= 95.0f && music.time <= 95.2f)
-            {
-                Debug.Log("PARTE 5");
-                part5 = true;
-            }
-        }
-        if (!part6)
-        {
-            if (music.time >= 108.3f && music.time <= 108.5f)
                 stopSpawn = true;
-            else if (music.time >= 128.6f && music.time <= 128.8f)
-            {
-                //stopSpawn = false;
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
-                part6 = true;
-                Debug.Log("PARTE 6: BOSS");
+                part5 = true;
+                Debug.Log("PARTE 5: BOSS");
             }
         }
     }
