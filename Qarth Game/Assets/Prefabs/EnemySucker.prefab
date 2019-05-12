@@ -9495,7 +9495,7 @@ MonoBehaviour:
   life: 1
   normalParticles: {fileID: 0}
   particlesSucker: {fileID: 0}
-  timeDamage: 1.5
+  timeDamage: 2
   dieAudiosource: {fileID: 8771275868817958415}
 --- !u!82 &8771275868817958415
 AudioSource:
