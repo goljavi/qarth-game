@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.layer);
         if(other.gameObject.layer == 9)
         {
             other.gameObject.GetComponent<Wall>().Hit();

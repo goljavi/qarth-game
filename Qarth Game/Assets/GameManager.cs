@@ -160,7 +160,6 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 128.6f && music.time <= 128.8f)
             {
-                stopSpawn = true;
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part5 = true;
                 Debug.Log("PARTE 5: BOSS");
