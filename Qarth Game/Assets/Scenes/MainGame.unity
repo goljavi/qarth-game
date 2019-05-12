@@ -5576,6 +5576,80 @@ Transform:
   m_Father: {fileID: 745932162}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 30.000002, z: 0}
+--- !u!1 &445187725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445187726}
+  - component: {fileID: 445187728}
+  - component: {fileID: 445187727}
+  m_Layer: 0
+  m_Name: ProgressBar (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &445187726
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445187725}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 6.499233, y: 6.499233, z: 6.499233}
+  m_Children: []
+  m_Father: {fileID: 968901818}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -680, y: 190}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &445187727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445187725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.79617286, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: bca143904678ddc41859638d79a55ba4, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &445187728
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445187725}
+  m_CullTransparentMesh: 0
 --- !u!1 &500697484
 GameObject:
   m_ObjectHideFlags: 0
@@ -6275,7 +6349,7 @@ RectTransform:
   m_LocalScale: {x: 0.33788317, y: 0.33788317, z: 0.33788317}
   m_Children: []
   m_Father: {fileID: 968901818}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6807,6 +6881,7 @@ RectTransform:
   m_LocalScale: {x: 0.6767978, y: 0.6767978, z: 0.6767978}
   m_Children:
   - {fileID: 1311243198}
+  - {fileID: 445187726}
   - {fileID: 1170237231}
   - {fileID: 748215163}
   - {fileID: 2008927252}
@@ -6909,7 +6984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0483573daa7684f8ddf4e7f93ac51e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPrefab: {fileID: 0}
+  bossPrefab: {fileID: 204554359308299700, guid: 33c5cec7e67dc3948b2a4d97df4c3bb8,
+    type: 3}
   spawnerEnemys:
   - {fileID: 745531318}
   - {fileID: 210206057}
@@ -7305,7 +7381,7 @@ RectTransform:
   m_LocalScale: {x: 0.47867712, y: 0.47867712, z: 0.47867712}
   m_Children: []
   m_Father: {fileID: 968901818}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8689,7 +8765,7 @@ RectTransform:
   m_LocalScale: {x: 0.33788696, y: 0.33788696, z: 0.33788696}
   m_Children: []
   m_Father: {fileID: 968901818}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -8803,7 +8879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Amount: {fileID: 1143895631}
   player2Amount: {fileID: 1934105788}
-  progress: {fileID: 0}
+  progress: {fileID: 445187727}
 --- !u!114 &2062312433
 MonoBehaviour:
   m_ObjectHideFlags: 0
