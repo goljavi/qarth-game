@@ -180,7 +180,7 @@ public class Player : MonoBehaviour
             // var node = other.gameObject.GetComponent<QarthNode>();
             other.gameObject.GetComponent<QarthNode>().GetComponentInChildren<Renderer>().material.SetFloat("_ActiveLight", 0);
             if (!_connecting){
-                for (int i = 0; i < currentNode.linesNode.Length; i++)
+                for (int i = 0; i < currentNode.linesNode.Length - 1; i++)
                 {
                     currentNode.linesNode[i].transform.localScale = new Vector3(currentNode.linesNode[i].transform.localScale.x, currentNode.linesNode[i].transform.localScale.y, 0.0003977809f);
                 }

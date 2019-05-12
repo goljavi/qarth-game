@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour
     bool stopSpawn, doubleSpawn;
     bool part1, part2, part3, part4, part5, part6;
     float timeElapsed;
+    public PostProcessingProfile profile;
+    public List<float> hueChange;
 
     bool spawnearSuccionadores;
     public bool finishLevel;
@@ -73,22 +77,34 @@ public class GameManager : MonoBehaviour
 
     void RandomSpawner()
     {
-        var b = EnemySpawner.Instance.pool.GetObject();
+        Enemy b = EnemySpawner.Instance.pool.GetObject();
+        if (spawnearSuccionadores && Random.value <= .2f)
+            b = EnemySpawner.Instance.poolEnemySucker.GetObject();
+
         int random = Random.Range(0, spawnerEnemys.Length - 1);
         int randomPX = Random.Range(-20, 20);
         b.transform.position = spawnerEnemys[random].position;
         FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random));
         b.transform.position += new Vector3 (randomPX, 0);
     }
+    
+    public void ChangePostProcess(int step)
+    {
+        ColorGradingModel.Settings algo = profile.colorGrading.settings;
+        algo.basic.hueShift = hueChange[step];
+    }
+    
     void CheckPartsMusic()
     {
         if (!part1)
         {
-            if (music.time >= 22.8f && music.time <= 22.99f)
+            if (music.time >= 0 && music.time <= 1)
             {
                 timerSpawn = 3f;
                 part1 = true;
                 Debug.Log("PARTE 1");
+
+                ChangePostProcess(0);
             }
         }
         /*if (!part2)
@@ -113,37 +129,41 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 58.8f && music.time <= 58.99f)
             {
-                spawnearSuccionadores = true;
                 timerSpawn = 2.5f;
                 part2 = true;
                 Debug.Log("PARTE 2");
+                ChangePostProcess(1);
             }
         }
         if (!part3)
         {
             if (music.time >= 82.5f && music.time <= 82.7f)
             {
+                spawnearSuccionadores = true;
                 Debug.Log("PARTE 3");
                 part3 = true;
+                ChangePostProcess(2);
             }
         }
         if (!part4)
         {
             if (music.time >= 109.6f && music.time <= 109.8f)
             {
+                timerSpawn = 5f;
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part4 = true;
                 Debug.Log("PARTE 4: TRANQUILA");
+                ChangePostProcess(3);
             }
         }
         if (!part5)
         {
             if (music.time >= 128.6f && music.time <= 128.8f)
             {
-                stopSpawn = true;
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part5 = true;
                 Debug.Log("PARTE 5: BOSS");
+                ChangePostProcess(4);
             }
         }
     }
