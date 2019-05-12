@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PostProcessing;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour
     bool stopSpawn, doubleSpawn;
     bool part1, part2, part3, part4, part5, part6;
     float timeElapsed;
+    public PostProcessingProfile profile;
+    public List<float> hueChange;
 
     // Update is called once per frame
     void Update()
@@ -106,6 +110,13 @@ public class GameManager : MonoBehaviour
         a.transform.position += new Vector3(randomPX, 0);
         b.transform.position += new Vector3(randomPX, 0);
     }
+
+    public void ChangePostProcess(int step)
+    {
+        ColorGradingModel.Settings algo = profile.colorGrading.settings;
+        algo.basic.hueShift = hueChange[step];
+    }
+    
     void CheckPartsMusic()
     {
         if (!part1)
