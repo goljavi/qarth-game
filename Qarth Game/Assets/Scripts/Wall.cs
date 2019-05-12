@@ -57,6 +57,7 @@ public class Wall : MonoBehaviour
         transform.position = Node2.transform.position;
         currentDir = Node1.transform.position;
         currentNodeDir = Node1;
+        GetComponent<TrailRenderer>().materials[0].SetColor("_BaseColor", parent.playerColor);
 
         this.Node1.WallConnect(this);
         this.Node2.WallConnect(this);
