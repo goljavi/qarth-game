@@ -44,10 +44,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Amplitude: 0.7
     - _Float0: 0.08
     - _Float1: 0.59
     - _Float2: 0.57
     - __dirty: 0
     m_Colors:
+    - _Color: {r: 0.7069154, g: 0.30655926, b: 0.7830189, a: 0}
     - _ColorEnemy: {r: 0.41509432, g: 0, b: 0.29110512, a: 0}
     - _Velocity: {r: 3, g: 2, b: 0, a: 0}

@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnerEnemys;
     public float timerSpawn;
     public float secondsToWin;
-
+    public GameObject screenWin, screenDefeat, particlesWin;
     float _timer;
     public AudioSource music;
     bool stopSpawn, doubleSpawn;
@@ -33,6 +33,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log(music.time);
+            Win();
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log(music.time);
+            Lose();
         }
 
         // Check Win
@@ -53,12 +60,15 @@ public class GameManager : MonoBehaviour
 
     void Win()
     {
-        Debug.Log("Win");
+        screenWin.gameObject.SetActive(true);
+        particlesWin.gameObject.SetActive(true);
+       // Time.timeScale = 0;
     }
 
     void Lose()
     {
-        Debug.Log("Lose");
+        screenDefeat.gameObject.SetActive(true);
+       // Time.timeScale = 0;
     }
 
     void RandomSpawner()

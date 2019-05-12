@@ -7,12 +7,23 @@ public class Enemy : MonoBehaviour
     public GameObject nucleo;
     public float speed;
     public AudioSource chocarAudiosrc;
-    private void Awake()
+    public ParticleSystem myparticles;
+
+    protected virtual void Awake()
     {
+        if (GetComponent<ParticleSystem>())
+        {
+            myparticles = GetComponent<ParticleSystem>();
+        }
+        else
+        {
+            myparticles = GetComponentInChildren<ParticleSystem>();
+        }
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
     }
     void Update()
     {
+        myparticles.Play();
         transform.LookAt(nucleo.transform.position);
         transform.position += transform.forward * speed * Time.deltaTime;
     }

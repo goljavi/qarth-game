@@ -16,8 +16,9 @@ public class Bawss : Enemy
 
     public AudioSource dieAudiosource;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
         if(particlesSucker == null)
             particlesSucker = GetComponentInChildren<ParticleSystem>();
