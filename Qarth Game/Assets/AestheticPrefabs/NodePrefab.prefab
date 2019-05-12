@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6703084085271588997}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.6475995, y: 3.6475995, z: 3.6475995}
+  m_LocalPosition: {x: 0, y: 0.000000092625, z: 0}
+  m_LocalScale: {x: 5.814638, y: 5.814638, z: 5.814638}
   m_Children: []
   m_Father: {fileID: 4611700403073219808}
   m_RootOrder: 0
@@ -58,6 +58,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   originalColor: {r: 0, g: 0, b: 0, a: 0}
+  fila: 0
+  columna: 0
   inUse: 0
 --- !u!1 &8140432054487777506
 GameObject:
