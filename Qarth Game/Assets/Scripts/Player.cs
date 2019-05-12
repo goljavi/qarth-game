@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public GameObject paredPrefab;
     public Color playerColor;
-    public Renderer rend;
+    private Renderer rend;
 
     public AudioSource useNodeAudiosrc;
     public AudioSource usingNodeAudiosrc;
@@ -22,11 +22,21 @@ public class Player : MonoBehaviour
     LineRenderer _lr;
     bool _connecting;
 
+    private void Awake()
+    {
+        rend = GetComponentInChildren<Renderer>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         playerMat = rend.material;
-        playerMat.color = playerColor;
+        playerMat.SetColor("_BaseColor", playerColor);
+        ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
+        var main = ps.main;
+        main.startColor = playerColor;
+        GetComponentInChildren<TrailRenderer>().materials[0].SetColor("_BaseColor", playerColor);
+        GetComponentInChildren<Renderer>().materials[0].SetColor("_ColorBase", playerColor);
         walls = new LinkedList<Wall>();
         _lr = GetComponent<LineRenderer>();
         _lr.enabled = false;
