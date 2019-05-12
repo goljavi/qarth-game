@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5006678277445616018}
   - component: {fileID: 4596819730709798140}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,8 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
-  - {fileID: 2100000, guid: a771d7f4bf2218d47a0d60500b8f2975, type: 2}
+  - {fileID: 2100000, guid: 0d09d9eed07fe074998a954546bbe96d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -437,7 +436,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.66
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -899,7 +898,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1.03
+      value: 0.57
       mode: 0
       spread: 0
       speed:
@@ -1018,7 +1017,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 190.5
+      scalar: 88.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1135,7 +1134,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 5.3777766
           outSlope: 5.3777766
           tangentMode: 0
@@ -1143,8 +1142,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.14610389
         - serializedVersion: 3
-          time: 0.31879675
-          value: 0.7519975
+          time: 0.38697302
+          value: 1
           inSlope: 0.6242139
           outSlope: 0.6242139
           tangentMode: 0
@@ -1152,8 +1151,8 @@ ParticleSystem:
           inWeight: 0.5945412
           outWeight: 0.24929686
         - serializedVersion: 3
-          time: 1
-          value: 0
+          time: 0.99349976
+          value: 1
           inSlope: 1
           outSlope: 1
           tangentMode: 0
@@ -4836,7 +4835,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 360
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -4968,7 +4967,6 @@ MonoBehaviour:
   paredPrefab: {fileID: 7276429463486873983, guid: f384450475e3f47418287b192c5f36f4,
     type: 3}
   playerColor: {r: 0, g: 0.08090782, b: 1, a: 0}
-  rend: {fileID: 8438210551118103924}
   useNodeAudiosrc: {fileID: 931337381175466483}
   usingNodeAudiosrc: {fileID: 955341505673661974}
   errorNodeAudiosrc: {fileID: 2208227690197578803}
@@ -5006,7 +5004,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dd441ed13f7188244983598af1ab3f7c, type: 2}
+  - {fileID: 2100000, guid: 3a10394b297a6f94ea942ddb18e3b130, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
