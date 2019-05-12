@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PostProcessing;
+using Cinemachine;
+using Cinemachine.PostFX;
 
 
 public class GameManager : MonoBehaviour
@@ -17,13 +19,36 @@ public class GameManager : MonoBehaviour
     bool part1, part2, part3, part4, part5, part6;
     float timeElapsed;
     public PostProcessingProfile profile;
-    public List<float> hueChange;
+    public CinemachinePostFX profileFX;
+    public List<PostProcessingProfile> profiles = new List<PostProcessingProfile>();
+    //public List<float> hueChange;
 
     bool spawnearSuccionadores;
+
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ChangePostProcess(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ChangePostProcess(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ChangePostProcess(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ChangePostProcess(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            ChangePostProcess(4);
+        }
         if (!stopSpawn)
         {
             _timer += Time.deltaTime;
@@ -90,8 +115,8 @@ public class GameManager : MonoBehaviour
     
     public void ChangePostProcess(int step)
     {
-        ColorGradingModel.Settings algo = profile.colorGrading.settings;
-        algo.basic.hueShift = hueChange[step];
+        Debug.Log(step);
+        profileFX.m_Profile = profiles[step];
     }
     
     void CheckPartsMusic()

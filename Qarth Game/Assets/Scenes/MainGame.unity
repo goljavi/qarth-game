@@ -7000,12 +7000,13 @@ MonoBehaviour:
   particlesWin: {fileID: 324237174}
   music: {fileID: 1094884492}
   profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
-  hueChange:
-  - -12
-  - 180
-  - 58
-  - -35
-  - 121
+  profileFX: {fileID: 611380868}
+  profiles:
+  - {fileID: 11400000, guid: 4d9dcc67bb04a82409837b144406b330, type: 2}
+  - {fileID: 11400000, guid: 7948647eeb33315499e812295577a30e, type: 2}
+  - {fileID: 11400000, guid: 40d7ac1cc77842445a75210e0c6652de, type: 2}
+  - {fileID: 11400000, guid: ad37c49670ff59a4e9b2c9225f3d970e, type: 2}
+  - {fileID: 11400000, guid: f13d2dae599bfdc49a1eda404403e2ec, type: 2}
 --- !u!4 &1094884491
 Transform:
   m_ObjectHideFlags: 0
