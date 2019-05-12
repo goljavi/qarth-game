@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
         if (walls.Count < 1) return;
         walls.First.Value.Disconnect();
         walls.RemoveFirst();
+        UIManager.Instance.ChangeUI(GetComponent<MovementPlayers>().player1, walls.Count);
         _connecting = false;
     }
 
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
         
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
+        UIManager.Instance.ChangeUI(GetComponent<MovementPlayers>().player1, walls.Count);
         linkedNode = null;
         _connecting = false;
         _lr.enabled = false;
