@@ -87,6 +87,10 @@ public class Player : MonoBehaviour
         {
             usingNodeAudiosrc.Play();
             linkedNode = currentNode;
+            for (int i = 0; i < linkedNode.linesNode.Length; i++)
+            {
+            linkedNode.linesNode[i].SetActive(true);
+            }
             currentNode.Selected(this);
             _connecting = true;
             _lr.enabled = true;
@@ -94,6 +98,10 @@ public class Player : MonoBehaviour
         else
         {
             usingNodeAudiosrc.Stop();
+            for (int i = 0; i < linkedNode.linesNode.Length; i++)
+            {
+                linkedNode.linesNode[i].SetActive(false);
+            }
             linkedNode.Deselect();
             linkedNode = null;
             _connecting = false;
@@ -133,6 +141,10 @@ public class Player : MonoBehaviour
         usingNodeAudiosrc.Stop();
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
+        for (int i = 0; i < linkedNode.linesNode.Length; i++)
+        {
+            linkedNode.linesNode[i].SetActive(false);
+        }
         linkedNode = null;
         _connecting = false;
         _lr.enabled = false;
