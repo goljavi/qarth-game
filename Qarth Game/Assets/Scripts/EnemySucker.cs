@@ -12,6 +12,9 @@ public class EnemySucker : Enemy
     Wall _wall;
     public float timeDamage;
     float _timer;
+
+    public AudioSource dieAudiosource;
+
     private void Awake()
     {
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
@@ -24,7 +27,9 @@ public class EnemySucker : Enemy
     void Update()
     {
         if (life <= 0)
+        {
             TurnOff(this);
+        }
         transform.LookAt(nucleo.transform.position);
         if (!_suckerActive)
         {
@@ -52,6 +57,8 @@ public class EnemySucker : Enemy
                         {
                             life--;
                             _size -= 0.5f;
+                            if(life <= 0)
+                                dieAudiosource.Play();
                         }
                         else
                         {
@@ -74,6 +81,8 @@ public class EnemySucker : Enemy
                         {
                             life--;
                             _size -= 0.5f;
+                            if(life <= 0)
+                            dieAudiosource.Play();
                         }
                         else
                         {

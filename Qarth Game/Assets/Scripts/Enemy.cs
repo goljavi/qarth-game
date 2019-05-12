@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public GameObject nucleo;
     public float speed;
+    public AudioSource chocarAudiosrc;
     private void Awake()
     {
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
@@ -22,11 +23,13 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.layer == 9)
         {
             other.gameObject.GetComponent<Wall>().Hit();
+            chocarAudiosrc.Play();
             TurnOff(this);
         }
         else if (other.gameObject.layer == 10)
         {
             //ACA TOCA NUCLEO
+            chocarAudiosrc.Play();
             TurnOff(this);
         }
     }
