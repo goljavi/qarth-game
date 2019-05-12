@@ -5,7 +5,7 @@ using System.Linq;
 
 public class QarthNode : MonoBehaviour
 {
-    public Renderer rend;
+    private Renderer rend;
     public Color originalColor;
     Material mat;
     List<Wall> walls;
@@ -14,6 +14,7 @@ public class QarthNode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponentInParent<Renderer>();
         rend.material.color = originalColor;
         mat = rend.material;
         walls = new List<Wall>();

@@ -342,6 +342,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8438210551118103929, guid: 9990c1f633eb2b54eb4c41c6a857b3bb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a771d7f4bf2218d47a0d60500b8f2975, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9990c1f633eb2b54eb4c41c6a857b3bb, type: 3}
 --- !u!1 &381037867
@@ -1520,7 +1525,7 @@ PrefabInstance:
     - target: {fileID: 8438210551118103920, guid: 9990c1f633eb2b54eb4c41c6a857b3bb,
         type: 3}
       propertyPath: m_Name
-      value: Player (1)
+      value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 8438210551118103930, guid: 9990c1f633eb2b54eb4c41c6a857b3bb,
         type: 3}
@@ -1592,6 +1597,11 @@ PrefabInstance:
       propertyPath: playerColor.b
       value: 0.07980776
       objectReference: {fileID: 0}
+    - target: {fileID: 8438210551118103929, guid: 9990c1f633eb2b54eb4c41c6a857b3bb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a771d7f4bf2218d47a0d60500b8f2975, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9990c1f633eb2b54eb4c41c6a857b3bb, type: 3}
 --- !u!1 &977587563

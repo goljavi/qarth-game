@@ -22,8 +22,8 @@ public class MovementPlayers : MonoBehaviour
         {
             moveH = Input.GetAxis("HorizontalPlayer1");
             moveV = Input.GetAxis("VerticalPlayer1");
-            if (Input.GetKeyDown(KeyCode.Alpha0)) _player.Connect();
-            if (Input.GetKeyDown(KeyCode.Alpha1)) _player.Disconnect();
+            if (Input.GetKeyDown(KeyCode.Keypad0)) _player.Connect();
+            if (Input.GetKeyDown(KeyCode.Keypad1)) _player.Disconnect();
         }
         else
         {
