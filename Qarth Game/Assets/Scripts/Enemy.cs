@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour
             other.GetComponent<Wall>().Hit();
             TurnOff(this);
         }
+        else if (other.gameObject.layer == 10)
+        {
+            //ACA TOCA NUCLEO
+            TurnOff(this);
+        }
     }
 
     public static void TurnOn(Enemy e)
