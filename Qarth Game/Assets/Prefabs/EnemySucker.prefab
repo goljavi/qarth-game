@@ -4762,7 +4762,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e7e59a709e2c5840ba1b2dad71dd1af, type: 2}
+  - {fileID: 2100000, guid: c22e06589488983448d67fed9528aa42, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7397,7 +7397,7 @@ ParticleSystem:
     strength:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6.48
+      scalar: 1.14
       minScalar: 1
       maxCurve:
         serializedVersion: 2
