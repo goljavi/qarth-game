@@ -43,7 +43,6 @@ public class Enemy : MonoBehaviour
         }
         else if (other.gameObject.layer == 10)
         {
-            //ACA TOCA NUCLEO
             chocarAudiosrc.Play();
             TurnOff(this);
         }

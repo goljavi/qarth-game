@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour
 
     void Win()
     {
+        finishLevel = true;
         screenWin.gameObject.SetActive(true);
         particlesWin.gameObject.SetActive(true);
        // Time.timeScale = 0;
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     void Lose()
     {
+        finishLevel = true;
         screenDefeat.gameObject.SetActive(true);
        // Time.timeScale = 0;
     }

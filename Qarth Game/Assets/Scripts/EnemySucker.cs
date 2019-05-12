@@ -118,7 +118,6 @@ public class EnemySucker : Enemy
         }
         else if (other.gameObject.layer == 10)
         {
-            //ACA TOCA NUCLEO
             TurnOff(this);
         }
     }
