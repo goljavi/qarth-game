@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
             _lr.SetPosition(0, linkedNode.transform.position);
             _lr.SetPosition(1, transform.position);
         }
+        UIManager.Instance.ChangeUI(gameObject.GetComponent<MovementPlayers>().player1, walls.Count);
     }
 
     void WallLimitChecker()
@@ -89,7 +90,6 @@ public class Player : MonoBehaviour
         if (walls.Count < 1) return;
         walls.First.Value.Disconnect();
         walls.RemoveFirst();
-        UIManager.Instance.ChangeUI(gameObject.GetComponent<MovementPlayers>().player1, walls.Count);
         _connecting = false;
     }
 
@@ -99,7 +99,6 @@ public class Player : MonoBehaviour
         
         var wall = Instantiate(paredPrefab).GetComponent<Wall>();
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
-        UIManager.Instance.ChangeUI(gameObject.GetComponent<MovementPlayers>().player1, walls.Count);
         linkedNode = null;
         _connecting = false;
         _lr.enabled = false;

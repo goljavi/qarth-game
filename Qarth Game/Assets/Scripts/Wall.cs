@@ -69,6 +69,7 @@ public class Wall : MonoBehaviour
         Node1.WallDisconnect(this);
         Node2.WallDisconnect(this);
         UIManager.Instance.ChangeUI(parent.gameObject.GetComponent<MovementPlayers>().player1,parent.walls.Count);
+        parent.walls.Remove(wallNode);
         if(gameObject != null)
             Destroy(gameObject);
     }

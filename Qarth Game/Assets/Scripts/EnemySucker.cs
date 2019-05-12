@@ -97,7 +97,6 @@ public class EnemySucker : Enemy
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.layer);
         if (other.gameObject.layer == 9 && !_suckerActive)
         {
             _wall = other.gameObject.GetComponent<Wall>();
