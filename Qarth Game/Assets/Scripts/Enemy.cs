@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     public AudioSource chocarAudiosrc;
     public ParticleSystem myparticles;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (GetComponent<ParticleSystem>())
         {
