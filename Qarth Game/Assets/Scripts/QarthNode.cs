@@ -15,6 +15,7 @@ public class QarthNode : MonoBehaviour
     public bool inUse;
     public bool nodePlayer1;
     Renderer rend;
+    public GameObject[] linesNode;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,10 @@ public class QarthNode : MonoBehaviour
         rend.material.color = originalColor;
         mat = rend.material;
         walls = new List<Wall>();
+        for (int i = 0; i < linesNode.Length; i++)
+        {
+            linesNode[i].SetActive(false);
+        }
     }
 
     // Update is called once per frame
