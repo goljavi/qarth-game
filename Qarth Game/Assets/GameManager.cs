@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     void RandomSpawner()
     {
-        var b = EnemySpawner.Instance.pool.GetObject();
+        var b = EnemySpawner.Instance.poolEnemySucker.GetObject();
         int random = Random.Range(0, spawnerEnemys.Length - 1);
         int randomPX = Random.Range(-1, 1);
         b.transform.position = spawnerEnemys[random].position;

@@ -5,8 +5,10 @@ using UnityEngine;
 public class EnemySucker : Enemy
 {
     public int life;
+    float _size;
     Vector3 _posSucker;
     ParticleSystem _particlesSucker;
+    public ParticleSystem normalParticles;
     bool _suckerActive;
     Wall _wall;
     public float timeDamage;
@@ -15,6 +17,7 @@ public class EnemySucker : Enemy
     {
         nucleo = GameObject.FindGameObjectWithTag("Nucleo");
         _particlesSucker = GetComponentInChildren<ParticleSystem>();
+        normalParticles = GetComponent<ParticleSystem>();
         life = 1;
     }
     void Update()
@@ -38,9 +41,15 @@ public class EnemySucker : Enemy
                         _timer = 0;
 
                         if (_wall.violetWall)
+                        {
                             life--;
+                            _size -= 0.5f;
+                        }
                         else
+                        {
                             life++;
+                            _size += 0.5f;
+                        }
 
                         _suckerActive = false;
                         _wall = null;
@@ -50,13 +59,21 @@ public class EnemySucker : Enemy
                         _wall.Hit();
                         _timer = 0;
 
+
                         if (_wall.violetWall)
+                        {
                             life--;
+                            _size -= 0.5f;
+                        }
                         else
+                        {
                             life++;
+                            _size += 0.5f;
+                        }
                     }
                 }
-                transform.localScale = new Vector3(life, life, life);
+                _size = Mathf.Clamp(_size, 1, 3);
+                transform.localScale = new Vector3(_size, _size, _size);
             }
             else
             {
@@ -87,7 +104,11 @@ public class EnemySucker : Enemy
     public static void TurnOn(EnemySucker e)
     {
         e.gameObject.transform.localScale = Vector3.one;
+        e._size = 1;
         e.gameObject.SetActive(true);
+
+        if(e.normalParticles != null)
+            e.normalParticles.Play();
     }
 
     public static void TurnOff(EnemySucker e)

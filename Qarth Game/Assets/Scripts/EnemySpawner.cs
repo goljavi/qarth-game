@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _Instance = this;
         pool = new ObjectPool<Enemy>(EnemyFactory, Enemy.TurnOn, Enemy.TurnOff, 15, true);
+        poolEnemySucker = new ObjectPool<EnemySucker>(EnemySuckerFactory, EnemySucker.TurnOn, EnemySucker.TurnOff, 5, true);
     }
 
 
@@ -26,12 +27,22 @@ public class EnemySpawner : MonoBehaviour
     {
         return Instantiate(enemyPrefab);
     }
+    public EnemySucker EnemySuckerFactory()
+    {
+        return Instantiate(enemySuckerPrefab);
+    }
 
     public Enemy enemyPrefab;
+    public EnemySucker enemySuckerPrefab;
 
     public ObjectPool<Enemy> pool;
+    public ObjectPool<EnemySucker> poolEnemySucker;
 
     public void ReturnEnemy(Enemy e)
+    {
+        pool.ReturnObject(e);
+    }
+    public void ReturnEnemy(EnemySucker e)
     {
         pool.ReturnObject(e);
     }
