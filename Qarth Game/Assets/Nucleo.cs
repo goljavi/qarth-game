@@ -52,4 +52,9 @@ public class Nucleo : MonoBehaviour
         lifeHUD.text = "" + life;
         anim.SetTrigger("Damage");
     }
+    public void AddLife()
+    {
+        life++;
+        lifeHUD.text = "" + life;
+    }
 }

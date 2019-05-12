@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.PostProcessing;
 using Cinemachine;
 using Cinemachine.PostFX;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour
@@ -28,6 +29,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R) && finishLevel)
+        {
+            SceneManager.LoadScene(0);
+        }
+        if (Input.GetKeyDown(KeyCode.I) )
+        {
+            Nucleo.Instance.AddLife();
+        }
+        if (finishLevel)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangePostProcess(0);
