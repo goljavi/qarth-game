@@ -13,7 +13,7 @@ public class QarthNode : MonoBehaviour
     Material mat;
     List<Wall> walls;
     public bool inUse;
-
+    public bool nodePlayer1;
     Renderer rend;
 
     // Start is called before the first frame update

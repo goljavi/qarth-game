@@ -116,6 +116,7 @@ MonoBehaviour:
   Node1: {fileID: 0}
   Node2: {fileID: 0}
   parent: {fileID: 0}
+  colorViolet: {r: 1, g: 0, b: 1, a: 1}
 --- !u!96 &2683691211276237797
 TrailRenderer:
   serializedVersion: 2

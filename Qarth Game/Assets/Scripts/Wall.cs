@@ -21,6 +21,8 @@ public class Wall : MonoBehaviour
 
     public Player parent;
 
+    public Color colorViolet;
+
     void Update()
     {
         if (!Node1) return;
@@ -54,6 +56,13 @@ public class Wall : MonoBehaviour
         currentNodeDir = Node1;
         GetComponent<TrailRenderer>().materials[0].SetColor("_BaseColor", _parent.playerColor);
         GetComponent<ParticleSystemRenderer>().material.SetColor("_BaseColor", _parent.playerColor);
+
+        if(Node1.nodePlayer1 && !Node2.nodePlayer1 || !Node1.nodePlayer1 && Node2.nodePlayer1)
+        {
+            GetComponent<TrailRenderer>().materials[0].SetColor("_BaseColor", colorViolet);
+            GetComponent<ParticleSystemRenderer>().material.SetColor("_BaseColor", colorViolet);
+            violetWall = true;
+        }
 
         this.Node1.WallConnect(this);
         this.Node2.WallConnect(this);

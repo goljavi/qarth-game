@@ -110,6 +110,14 @@ public class Player : MonoBehaviour
             errorNodeAudiosrc.Play();
             return;
         }
+        if (!currentNode.inUse)
+        {
+            currentNode.nodePlayer1 = gameObject.GetComponent<MovementPlayers>().player1;
+        }
+        if (!linkedNode.inUse)
+        {
+            linkedNode.nodePlayer1 = gameObject.GetComponent<MovementPlayers>().player1;
+        }
         useNodeAudiosrc.time = 1.2f;
         useNodeAudiosrc.Play();
         usingNodeAudiosrc.Stop();
