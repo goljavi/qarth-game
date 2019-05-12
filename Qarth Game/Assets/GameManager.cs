@@ -14,12 +14,6 @@ public class GameManager : MonoBehaviour
     bool part1, part2, part3, part4, part5, part6;
     float timeElapsed;
 
-
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -73,6 +67,7 @@ public class GameManager : MonoBehaviour
         int random = Random.Range(0, spawnerEnemys.Length - 1);
         int randomPX = Random.Range(-1, 1);
         b.transform.position = spawnerEnemys[random].position;
+        FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random));
         b.transform.position += new Vector3 (randomPX, 0);
     }
     void RandomDoubleSpawner()
@@ -80,6 +75,7 @@ public class GameManager : MonoBehaviour
         var a = EnemySpawner.Instance.pool.GetObject();
         var b = EnemySpawner.Instance.pool.GetObject();
         int random = Random.Range(0, spawnerEnemys.Length - 1);
+        FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random));
         int random2;
 
         if(random == spawnerEnemys.Length)
@@ -89,6 +85,7 @@ public class GameManager : MonoBehaviour
         {
             random2 = random + 1;
         }
+        FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random2));
 
         int randomPX = Random.Range(-1, 1);
         a.transform.position = spawnerEnemys[random].position;
