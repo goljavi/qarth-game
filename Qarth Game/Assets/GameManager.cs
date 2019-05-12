@@ -73,7 +73,10 @@ public class GameManager : MonoBehaviour
 
     void RandomSpawner()
     {
-        var b = EnemySpawner.Instance.pool.GetObject();
+        Enemy b = EnemySpawner.Instance.pool.GetObject();
+        if (spawnearSuccionadores && Random.value <= .2f)
+            b = EnemySpawner.Instance.poolEnemySucker.GetObject();
+
         int random = Random.Range(0, spawnerEnemys.Length - 1);
         int randomPX = Random.Range(-20, 20);
         b.transform.position = spawnerEnemys[random].position;
@@ -84,7 +87,7 @@ public class GameManager : MonoBehaviour
     {
         if (!part1)
         {
-            if (music.time >= 22.8f && music.time <= 22.99f)
+            if (music.time >= 0 && music.time <= 1)
             {
                 timerSpawn = 3f;
                 part1 = true;
@@ -113,7 +116,6 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 58.8f && music.time <= 58.99f)
             {
-                spawnearSuccionadores = true;
                 timerSpawn = 2.5f;
                 part2 = true;
                 Debug.Log("PARTE 2");
@@ -123,6 +125,7 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 82.5f && music.time <= 82.7f)
             {
+                spawnearSuccionadores = true;
                 Debug.Log("PARTE 3");
                 part3 = true;
             }
@@ -131,6 +134,7 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 109.6f && music.time <= 109.8f)
             {
+                timerSpawn = 5f;
                 Instantiate(bossPrefab).transform.position = new Vector3(30, 1, 14);
                 part4 = true;
                 Debug.Log("PARTE 4: TRANQUILA");
