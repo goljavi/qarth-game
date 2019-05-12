@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 22.8f && music.time <= 22.99f)
             {
-                timerSpawn = 2.5f;
+                timerSpawn = 3.5f;
                 part1 = true;
                 Debug.Log("PARTE 1");
             }
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 34.7f && music.time <= 34.9f)
             {
-                timerSpawn = 2f;
+                timerSpawn = 3f;
                 part2 = true;
                 Debug.Log("PARTE 2");
             }
@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 46.7f && music.time <= 46.9f)
             {
+                timerSpawn = 3.5f;
                 doubleSpawn = true;
                 part3 = true;
                 Debug.Log("PARTE 3");
@@ -122,7 +123,7 @@ public class GameManager : MonoBehaviour
         {
             if (music.time >= 58.8f && music.time <= 58.99f)
             {
-                timerSpawn = 1.8f;
+                timerSpawn = 3f;
                 part4 = true;
                 Debug.Log("PARTE 4");
             }
@@ -130,11 +131,14 @@ public class GameManager : MonoBehaviour
         if (!part5)
         {
             if (music.time >= 82.5f && music.time <= 82.7f)
-                timerSpawn = 2f;
+            {
+
+            }
+                
             else if (music.time >= 95.0f && music.time <= 95.2f)
             {
                 Debug.Log("PARTE 5");
-                timerSpawn = 1.5f;
+                timerSpawn = 2.5f;
                 part5 = true;
             }
         }
