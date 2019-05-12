@@ -89,7 +89,8 @@ public class Player : MonoBehaviour
             linkedNode = currentNode;
             for (int i = 0; i < linkedNode.linesNode.Length; i++)
             {
-            linkedNode.linesNode[i].SetActive(true);
+            //linkedNode.linesNode[i].SetActive(true);
+                linkedNode.linesNode[i].transform.localScale = new Vector3(linkedNode.linesNode[i].transform.localScale.x, linkedNode.linesNode[i].transform.localScale.y, 0.002f);
             }
             currentNode.Selected(this);
             _connecting = true;
@@ -100,7 +101,8 @@ public class Player : MonoBehaviour
             usingNodeAudiosrc.Stop();
             for (int i = 0; i < linkedNode.linesNode.Length; i++)
             {
-                linkedNode.linesNode[i].SetActive(false);
+                //linkedNode.linesNode[i].SetActive(false);
+                linkedNode.linesNode[i].transform.localScale = new Vector3(linkedNode.linesNode[i].transform.localScale.x, linkedNode.linesNode[i].transform.localScale.y, 0.0003977809f);
             }
             linkedNode.Deselect();
             linkedNode = null;
@@ -143,7 +145,8 @@ public class Player : MonoBehaviour
         wall.SetWall(currentNode, linkedNode, walls.AddLast(wall), this);
         for (int i = 0; i < linkedNode.linesNode.Length; i++)
         {
-            linkedNode.linesNode[i].SetActive(false);
+            //linkedNode.linesNode[i].SetActive(false);
+            linkedNode.linesNode[i].transform.localScale = new Vector3(linkedNode.linesNode[i].transform.localScale.x, linkedNode.linesNode[i].transform.localScale.y, 0.0003977809f);
         }
         linkedNode = null;
         _connecting = false;
@@ -156,6 +159,11 @@ public class Player : MonoBehaviour
         {
             currentNode = other.gameObject.GetComponent<QarthNode>();
             currentNode.GetComponentInChildren<Renderer>().material.SetFloat("_ActiveLight", 1);
+            for (int i = 0; i < currentNode.linesNode.Length; i++)
+            {
+             currentNode.linesNode[i].transform.localScale = new Vector3(currentNode.linesNode[i].transform.localScale.x, currentNode.linesNode[i].transform.localScale.y, 0.001f);
+
+            }
         }
     }
 
@@ -163,7 +171,14 @@ public class Player : MonoBehaviour
     {
         if (other.tag == "Node")
         {
+            // var node = other.gameObject.GetComponent<QarthNode>();
             other.gameObject.GetComponent<QarthNode>().GetComponentInChildren<Renderer>().material.SetFloat("_ActiveLight", 0);
+            if (!_connecting){
+                for (int i = 0; i < currentNode.linesNode.Length; i++)
+                {
+                    currentNode.linesNode[i].transform.localScale = new Vector3(currentNode.linesNode[i].transform.localScale.x, currentNode.linesNode[i].transform.localScale.y, 0.0003977809f);
+                }
+            }
             currentNode = null;
         }
     }

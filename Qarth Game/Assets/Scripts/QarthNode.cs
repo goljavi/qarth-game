@@ -16,7 +16,6 @@ public class QarthNode : MonoBehaviour
     public bool nodePlayer1;
     Renderer rend;
     public GameObject[] linesNode;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +25,9 @@ public class QarthNode : MonoBehaviour
         walls = new List<Wall>();
         for (int i = 0; i < linesNode.Length; i++)
         {
-            linesNode[i].SetActive(false);
+            //linesNode[i].SetActive(false);
+            linesNode[i].transform.localScale = new Vector3(linesNode[i].transform.localScale.x, linesNode[i].transform.localScale.y, 0.0003977809f);
+
         }
     }
 
