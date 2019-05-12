@@ -21,8 +21,6 @@ public class EnemySpawner : MonoBehaviour
         poolEnemySucker = new ObjectPool<EnemySucker>(EnemySuckerFactory, EnemySucker.TurnOn, EnemySucker.TurnOff, 5, true);
     }
 
-
-
     public Enemy EnemyFactory()
     {
         return Instantiate(enemyPrefab);

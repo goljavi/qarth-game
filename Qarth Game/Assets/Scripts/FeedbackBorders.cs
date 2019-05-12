@@ -17,9 +17,12 @@ public class FeedbackBorders : MonoBehaviour
 
     public IEnumerator ActivateBorder(int ID)
     {
+        yield return new WaitForSeconds(3f);
         borders[ID].gameObject.GetComponent<Renderer>().material.SetFloat("_BaseLerp", 1f);
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(0.5f);
         audiosrc.Play();
+        borders[ID].gameObject.GetComponent<Renderer>().material.SetFloat("_FeedbackTime", 1.3f);
+        yield return new WaitForSeconds(2f);
         DeactivateBorder(ID);
     }
 

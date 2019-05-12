@@ -30,11 +30,8 @@ public class GameManager : MonoBehaviour
                 {
                     RandomSpawner();
                 }
-
                 _timer = 0;
-
             }
-
         }
         CheckPartsMusic();
         if (Input.GetKeyDown(KeyCode.Space))
@@ -53,7 +50,6 @@ public class GameManager : MonoBehaviour
     void Win()
     {
         Debug.Log("Win");
-        
     }
 
     void Lose()
@@ -65,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         var b = EnemySpawner.Instance.poolEnemySucker.GetObject();
         int random = Random.Range(0, spawnerEnemys.Length - 1);
-        int randomPX = Random.Range(-1, 1);
+        int randomPX = Random.Range(-20, 20);
         b.transform.position = spawnerEnemys[random].position;
         FeedbackBorders.Instance.StartCoroutine(FeedbackBorders.Instance.ActivateBorder(random));
         b.transform.position += new Vector3 (randomPX, 0);
