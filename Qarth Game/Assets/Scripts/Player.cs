@@ -21,10 +21,12 @@ public class Player : MonoBehaviour
     public LinkedList<Wall> walls;
     LineRenderer _lr;
     bool _connecting;
+    GameManager manager;
 
     private void Awake()
     {
         rend = GetComponentInChildren<Renderer>();
+        manager = FindObjectOfType<GameManager>();
     }
 
     // Start is called before the first frame update
@@ -51,12 +53,16 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (manager.finishLevel)
+            return;
+
         WallLimitChecker();
         if (_connecting && linkedNode)
         {
             _lr.SetPosition(0, linkedNode.transform.position);
             _lr.SetPosition(1, transform.position);
         }
+
         UIManager.Instance.ChangeUI(gameObject.GetComponent<MovementPlayers>().player1, walls.Count);
     }
 

@@ -10,14 +10,18 @@ public class MovementPlayers : MonoBehaviour
     public bool player1;
     float moveH;
     float moveV;
+    GameManager manager;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         _player = GetComponent<Player>();
+        manager = FindObjectOfType<GameManager>();
     }
 
     void FixedUpdate()
     {
+        if (manager.finishLevel)
+            return;
         if (player1)
         {
             moveH = Input.GetAxis("HorizontalPlayer1");
