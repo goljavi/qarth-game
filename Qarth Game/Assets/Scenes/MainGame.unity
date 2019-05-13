@@ -6111,8 +6111,8 @@ GameObject:
   - component: {fileID: 611380865}
   - component: {fileID: 611380864}
   - component: {fileID: 611380866}
-  - component: {fileID: 611380868}
   - component: {fileID: 611380867}
+  - component: {fileID: 611380868}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6229,7 +6229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
+  profile: {fileID: 11400000, guid: 4d9dcc67bb04a82409837b144406b330, type: 2}
 --- !u!114 &611380868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6242,7 +6242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 360979aafebd332448626a2236bafdb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
+  m_Profile: {fileID: 11400000, guid: 4d9dcc67bb04a82409837b144406b330, type: 2}
   m_FocusTracksTarget: 0
   m_FocusOffset: 0
 --- !u!1 &632911645
@@ -7243,8 +7243,13 @@ MonoBehaviour:
   particlesWin: {fileID: 324237174}
   music: {fileID: 1094884492}
   profile: {fileID: 11400000, guid: c5d42522b8be3b34fbff6a527893d51c, type: 2}
-  profileFX: {fileID: 0}
-  profiles: []
+  profileFX: {fileID: 611380868}
+  profiles:
+  - {fileID: 11400000, guid: 4d9dcc67bb04a82409837b144406b330, type: 2}
+  - {fileID: 11400000, guid: 7948647eeb33315499e812295577a30e, type: 2}
+  - {fileID: 11400000, guid: 40d7ac1cc77842445a75210e0c6652de, type: 2}
+  - {fileID: 11400000, guid: ad37c49670ff59a4e9b2c9225f3d970e, type: 2}
+  - {fileID: 11400000, guid: f13d2dae599bfdc49a1eda404403e2ec, type: 2}
   finishLevel: 0
 --- !u!4 &1094884491
 Transform:
